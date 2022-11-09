@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "40024484482",
+    "project_id": "fir-94e0e",
+    "storage_bucket": "fir-94e0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40024484482:android:54824bfaa2b646df01a29b",
+        "android_client_info": {
+          "package_name": "com.example.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "40024484482-145d1s7dbmbis794bftgqpa4tkua7caq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT0Xe8BT0kdY-XxhrCqnadi-nXWn1pvR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "40024484482-145d1s7dbmbis794bftgqpa4tkua7caq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40024484482:android:654e055cb6e16a3d01a29b",
+        "android_client_info": {
+          "package_name": "com.example.productivitybuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "40024484482-145d1s7dbmbis794bftgqpa4tkua7caq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT0Xe8BT0kdY-XxhrCqnadi-nXWn1pvR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "40024484482-145d1s7dbmbis794bftgqpa4tkua7caq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
