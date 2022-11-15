@@ -70,10 +70,7 @@ public class register extends AppCompatActivity {
                 String lname = l_name.getText().toString();
 
                 //validating user input
-                if (TextUtils.isEmpty(email)) {
-                    u_email.setError("Email is required");
-                    return;
-                }
+
                 if (TextUtils.isEmpty(fname)) {
                     f_name.setError("First name is required");
                     return;

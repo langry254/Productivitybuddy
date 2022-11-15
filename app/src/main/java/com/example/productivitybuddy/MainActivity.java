@@ -1,30 +1,49 @@
 package com.example.productivitybuddy;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 
-
-import java.util.Objects;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
+     //this button is for the bottom sheet
+
+
     //number of selected tab. default value is 1 cause the first tab is selected by default
     private int selectedTab = 1;
+    FloatingActionButton floatingbtn;
+    private Bundle savedInstanceState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.savedInstanceState = savedInstanceState;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        floatingbtn = findViewById(R.id.floatingActionButton);
+        floatingbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
         final LinearLayout today_layout = findViewById(R.id.today_layout);
         final LinearLayout habit_layout = findViewById(R.id.habit_layout);
         final LinearLayout task_layout = findViewById(R.id.task_layout);
@@ -190,9 +209,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if (selectedTab !=4){
 
-                    //set timer fragment
-                    getSupportFragmentManager().beginTransaction().setReorderingAllowed(true)
-                            .replace(androidx.fragment.R.id.fragment_container_view_tag,timerFragment.class,null).commit();
+
+
 
 
                     //unselected other tabs except for the timer tab
@@ -281,5 +299,43 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+    }
+
+
+
+//function for the bottom sheet using the floating action bar.
+    private void showDialog() {
+        final Dialog dialog= new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.bottomsheet);
+
+        LinearLayout chabit =dialog.findViewById(R.id.crhabit);
+        LinearLayout ctask = dialog.findViewById(R.id.crtask);
+
+        chabit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                Toast.makeText(MainActivity.this,"Share is Clicked",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        ctask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                Toast.makeText(MainActivity.this,"Share is Clicked",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        dialog.show();
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
     }
 }
+
+
