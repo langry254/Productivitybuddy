@@ -1,6 +1,7 @@
 package com.example.productivitybuddy;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -254,6 +255,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
+                //move to settings page
+                Intent intent = new Intent(MainActivity.this,settings.class);
+                startActivity(intent);
+
                 //check if settings tab is selected or not
 
                 if (selectedTab !=5){
@@ -318,7 +324,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Toast.makeText(MainActivity.this,"Share is Clicked",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(MainActivity.this,habit_edit.class);
+                startActivity(intent);
 
             }
         });
@@ -326,8 +333,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Toast.makeText(MainActivity.this,"Share is Clicked",Toast.LENGTH_SHORT).show();
-
+                Intent intent=new Intent(MainActivity.this,Task_edit.class);
+                startActivity(intent);
             }
         });
         dialog.show();
