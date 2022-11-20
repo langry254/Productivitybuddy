@@ -8,6 +8,42 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:background="#EAE7E7"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/main_cal"
+            android:layout_width="60dp"
+            android:layout_height="55dp"
+            android:clickable="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_outline_calendar_month_24"
+            android:padding="12dp"/>
+
+            <TextView
+                android:id="@+id/changdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:text="11/12/2022"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -109,7 +145,7 @@
             android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Task"
+            android:text="@string/task"
             android:textStyle="bold"
             android:layout_marginStart="10dp"
             android:textSize="16sp"/>
@@ -178,10 +214,6 @@
 
     </LinearLayout>
 
-
-
-
-
 </LinearLayout>
 
 
@@ -189,14 +221,14 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="578dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="3dp"
-        app:srcCompat="@drawable/ic_add"
-         />
+        android:layout_marginBottom="97dp"
+        app:srcCompat="@drawable/ic_add" />
 
 
 </RelativeLayout>
+
 
 

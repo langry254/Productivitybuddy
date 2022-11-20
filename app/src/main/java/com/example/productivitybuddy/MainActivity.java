@@ -1,5 +1,7 @@
 package com.example.productivitybuddy;
 
+import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,14 +13,21 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
+import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,9 +37,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     //number of selected tab. default value is 1 cause the first tab is selected by default
+
+
     private int selectedTab = 1;
     FloatingActionButton floatingbtn;
+    ImageView mmaincalender;
+    DatePickerDialog.OnDateSetListener setListener;
     private Bundle savedInstanceState;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +53,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //topleft calender icon
+        mmaincalender = findViewById(R.id.main_cal);
+        mmaincalender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showcal();
+
+
+            }
+        });
         floatingbtn = findViewById(R.id.floatingActionButton);
         floatingbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 showDialog();
             }
         });
+
         final LinearLayout today_layout = findViewById(R.id.today_layout);
         final LinearLayout habit_layout = findViewById(R.id.habit_layout);
         final LinearLayout task_layout = findViewById(R.id.task_layout);
@@ -308,10 +335,31 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    //function for the calender
+    private void showcal() {
+
+        Calendar calendar= Calendar.getInstance();
+        final int year=calendar.get(Calendar.YEAR);
+        final int month=calendar.get(Calendar.MONTH);
+        final int day=calendar.get(Calendar.DAY_OF_MONTH);
 
 
+        TextView changedate=findViewById(R.id.changdate);
+        DatePickerDialog datePickerDialog= new DatePickerDialog(
+                MainActivity.this,new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                month=month+1;
+                String date=day+"/"+month+"/"+year;
+                changedate.setText(date);
+            }
+        },year,month,day);
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis()- 1000);
+        datePickerDialog.show();
+    }
 
-//function for the bottom sheet using the floating action bar.
+
+    //function for the bottom sheet using the floating action bar.
     private void showDialog() {
         final Dialog dialog= new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

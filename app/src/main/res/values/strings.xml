@@ -32,5 +32,10 @@
     <string name="about">About</string>
     <string name="themes">Themes</string>
     <string name="logout">Logout</string>
+    <string name="define_your_habits">Define your habits</string>
+    <string name="task">Task</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="create_a_new_task">Create a new Task</string>
 
 </resources>
